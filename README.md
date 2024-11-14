@@ -1,36 +1,23 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## Jira Clone by YT Code with Antonio - Project Reference Guide
+### Tech stack: Next, ReactQuery, Appwrite, and Hono
 
-## Getting Started
+The project is organized into features (auth, users, etc.) Within the ``features`` folder, each feature will have
+- ``api`` folder for the react query hooks that makes API calls
+- ``components`` folder, for the relevant components needed.
+- ``server`` folder, that defines the API routes for the feature
 
-First, run the development server:
+**ReactQuery** and **Hono** provides end-to-end type-safety in this project. RQ(frontend) Hono(backend).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+**Note to self:** ```api/[[...route]]/route.ts``` is a catch all route for Nextjs to direct routes to be handled by **Hono** 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Auth Section (Sign in and Sign up)
+- Used Shadcn for form components
+- Validated form using Zod on FE
+- Use react query for making type-safe API calls to server
+- Session middlware is called to check if user is logged in. It also sets the current user in context (c) to use within route endpoint. see ```session-middlware.ts``` and ```auth/server/route.ts```
+- Protect sign-in and sign-up routes if user already exist
+- Protect home route if user doesn't exist
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Dashboard 
+- Made dashboard layout responsive on all screen sizes
+- Repsonsive open and close sidebar, routing to desired pages.

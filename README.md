@@ -21,3 +21,9 @@ The project is organized into features (auth, users, etc.) Within the ``features
 ## Dashboard 
 - Made dashboard layout responsive on all screen sizes
 - Repsonsive open and close sidebar, routing to desired pages.
+
+
+## Workspace Form
+- Uses shadcn/react-hook-form with zod for handling form submission
+- Implement the creating a workspace server route
+- Render success and error messages with toaster

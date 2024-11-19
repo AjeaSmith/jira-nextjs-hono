@@ -18,12 +18,18 @@ The project is organized into features (auth, users, etc.) Within the ``features
 - Protect sign-in and sign-up routes if user already exist
 - Protect home route if user doesn't exist
 
+---------
+
 ## Dashboard 
 - Made dashboard layout responsive on all screen sizes
 - Repsonsive open and close sidebar, routing to desired pages.
+- Dropdown menu to view workspaces to choose from in sidebar
 
+-------------
 
 ## Workspace Form
 - Uses shadcn/react-hook-form with zod for handling form submission
 - Implement the creating a workspace server route
 - Render success and error messages with toaster
+
+## 

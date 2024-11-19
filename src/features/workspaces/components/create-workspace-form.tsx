@@ -1,8 +1,8 @@
 "use client";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
-import { createWorkSpaceSchema } from "../schemas";
 import { z } from "zod";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { createWorkSpaceSchema } from "../schemas";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { DottedSeparator } from "@/components/dotted-separator";
 import {
@@ -31,8 +31,16 @@ const CreateWorkspaceForm = ({ onCancel }: Props) => {
 	});
 
 	const onSubmit = (values: z.infer<typeof createWorkSpaceSchema>) => {
-		mutate({ json: values });
+		mutate(
+			{ json: values },
+			{
+				onSuccess: () => {
+					form.reset();
+				},
+			}
+		);
 	};
+
 	return (
 		<Card className="w-full h-full border-none shadow-none">
 			<CardHeader className="flex p-7">
@@ -61,8 +69,8 @@ const CreateWorkspaceForm = ({ onCancel }: Props) => {
 								)}
 							/>
 						</div>
-						<DottedSeparator className="py-7" />
-						<div className="flex items-centetr justify-between">
+
+						<div className="flex items-center justify-between mt-7">
 							<Button
 								type="button"
 								size="lg"

@@ -6,6 +6,7 @@ import {
 	GoHomeFill,
 	GoCheckCircle,
 	GoCheckCircleFill,
+	GoPeople,
 } from "react-icons/go";
 
 const routes = [
@@ -20,6 +21,12 @@ const routes = [
 		label: "My Tasks",
 		icon: GoCheckCircle,
 		activeIcon: GoCheckCircleFill,
+	},
+	{
+		href: "/members",
+		label: "Members",
+		icon: GoPeople,
+		activeIcon: GoPeople,
 	},
 	{
 		href: "/settings",

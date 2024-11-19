@@ -14,6 +14,7 @@ export const useCreateWorkspace = () => {
 	const mutation = useMutation<ResponseType, Error, RequestType>({
 		mutationFn: async ({ json }) => {
 			const res = await client.api.workspaces["$post"]({ json });
+
 			if (!res.ok) {
 				throw new Error("Failed to create workspace");
 			}
@@ -23,7 +24,8 @@ export const useCreateWorkspace = () => {
 			toast.success("Workspace created");
 			queryClient.invalidateQueries({ queryKey: ["workspaces"] });
 		},
-		onError: () => {
+		onError: (err) => {
+			console.log("Error with image uloading", err.message);
 			toast.error("Failed to create workspace");
 		},
 	});
